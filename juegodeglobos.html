@@ -9,6 +9,20 @@
 
 <title>New HMTL document by NewJect</title>
 <style>
+    body{
+        background-color: whitesmoke
+    }
+    h1{
+        color: darkblue;
+        background-color: aqua;
+        text-align: center;
+        font-weight: bolder;
+    }
+    #marcador{
+        color:blue;
+        font-weight: bolder;
+        background-color: aqua;
+    }
     #lienzo{
         margin:100px auto;
         width: 900px;
@@ -47,13 +61,18 @@
     </style>
 </head>
 <body>
-
+<h1>Juego de globos</h1>
 <div id='lienzo'>
-    <div id='globouno'></div>
+    <div  id='globouno'></div>
     <div id='globodos'></div>
     <div id='globotres'></div>
 </div>
-    <button>Pincha aquí</button>
+    <div id='marcador'>
+    0
+    </div>
+
+    
+    <button>Jugar</button>
 
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -89,7 +108,8 @@
         $('#globotres').animate({bottom:'300px',
                                  zIndex:-1000
                                  },5000);
-        $('#globotres').animate({bottom:'0px',                        zIndex:1000
+        $('#globotres').animate({bottom:'0px',
+                                 zIndex:1000
                                 },1000,
                                 animacionGlobo3
                                 );
@@ -101,14 +121,18 @@
     });
     
     $('#globouno , #globodos , #globotres' ).click(function(){
-        $(this).css('display','none')
-             $('#globouno').html('BOOOM!');
-             $('#globodos').html('BOOOM!');
-             $('#globotres').html('BOOOM!');
+        $(this).css('backgroundImage','none').html('BOOOM!').fadeOut(500);
+           
+        //marcador
+    var puntos = $('#marcador').text();
+    $('#marcador').text(Number(puntos)+1); 
+        
     });
+    
+    
+   
+    
 
-    
-    
                                 
     </script>
 </body>
